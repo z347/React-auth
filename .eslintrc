@@ -1,0 +1,64 @@
+{
+  // Visit https://eslint.org/docs/user-guide/configuring to read more about this file
+
+  // 0 === off
+  // 1 === warn (warning)
+  // 2 === error
+
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jest": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": 2018,
+    "codeFrame": true,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [".ts", ".tsx"]
+      }
+    },
+    "import/extensions": [".ts", ".tsx"]
+  },
+  "extends": [
+    "react-app",
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": "error",
+    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
+    "import/prefer-default-export": "off",
+    "import/extensions": ["warn", "ignorePackages", { "ts": "never", "tsx": "never" }],
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "@typescript-eslint/lines-between-class-members": [
+      "error",
+      "always",
+      { "exceptAfterSingleLine": true }
+    ],
+    "@typescript-eslint/no-shadow": ["error", { "allow": ["state"] }],
+    "no-underscore-dangle": "off"
+  }
+}
